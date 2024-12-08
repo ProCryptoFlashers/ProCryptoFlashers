@@ -8,12 +8,37 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
     <meta name="description" content="ProCryptoFlashers - Advanced Crypto Tools and Information">
-    <meta name="keywords" content="ProCryptoFlashers, USDT Flash, BTC Wallet Drainer, Crypto Tools, Fake Crypto Transactions, Blockchain Testing, Pro Crypto Flashers VIP, Subscription Packages for Crypto Tools, USDT Mimicry Software, Hourly Flash Access, Flash USDT TRC20, Create Flash USDT, USDT Flash Software, Flash USDT ERC20, How to Flash USDT, Binance Flash USDT, Flash USDT Kya Hota Hai, USDT Flashing Software, Flash USDT Trust Wallet, Free Flash USDT, Bitcoin News, Bitcoin Price, Bitcoin Flash Crash, Bitcoin Today, Bitcoin Crash, Bitcoin Trading, Bitcoin Price Prediction, Bitcoin Prediction, Bitcoin Flasher, Litecoin, Buy Bitcoin, Bitcoin Prix, Bitcoin Live, Bitcoin Price Analysis, Bitcoin Target, Bitcoin New Today, Flash Bitcoin, Bitcoin Aujourd'hui, Bitcoin Flash, Altcoin, Bitcoin Flash Software, Bitcoin Flasher 2024, Bitcoin Flasher 2023, Bitcoin Flasher Free, How to Sent Bitcoin Flash">
+    <meta name="keywords" content="ProCryptoFlashers, USDT Flash, BTC Wallet Drainer, Crypto Tools, Blockchain Testing, Crypto Wallet, Flash Transactions">
+    <meta property="og:title" content="ProCryptoFlashers - Advanced Crypto Tools">
+    <meta property="og:description" content="Experience cutting-edge crypto tools like USDT Flash and BTC Wallet Drainer. Test and enhance your blockchain solutions.">
+    <meta property="og:image" content="assets/meta/images/og-banner.jpg">
+    <meta property="og:url" content="https://procryptoflashers.vip">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
 </head>
 <body>
+    <!-- Loader -->
+    <div id="loader">
+        <img src="assets/logo/tether-usdt-logo.svg" alt="Loader Logo">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <!-- Policy Popup -->
+    <div id="policy-popup" class="popup">
+        <div class="popup-content">
+            <h2>Accept Our Policies</h2>
+            <p>To continue using ProCryptoFlashers, you must accept our terms and policies.</p>
+            <button id="accept-policy">Yes</button>
+            <button id="reject-policy">No</button>
+        </div>
+    </div>
+
     <header>
         <nav>
-            <img src="images/logo.png" alt="ProCryptoFlashers Logo">
+            <img src="assets/logo/tether-usdt-logo.svg" alt="ProCryptoFlashers Logo">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#tools">Tools</a></li>
@@ -26,35 +51,30 @@
     <main>
         <section id="home">
             <h1>Welcome to ProCryptoFlashers</h1>
-            <p>Your ultimate source for advanced crypto tools and information.</p>
+            <p>Your ultimate source for advanced crypto tools and blockchain solutions.</p>
             <button id="connect-wallet">Connect Wallet</button>
         </section>
 
         <section id="tools">
             <h2>Crypto Tools</h2>
-            <div id="tool-list">
-                <!-- Tool items will be dynamically added here -->
-            </div>
+            <div id="tool-list"></div>
         </section>
 
         <section id="news">
-            <h2>Latest Bitcoin News</h2>
-            <div id="news-list">
-                <!-- News items will be dynamically added here -->
-            </div>
+            <h2>Latest Updates</h2>
+            <div id="news-list"></div>
         </section>
 
         <section id="about">
             <h2>About Us</h2>
-            <p>ProCryptoFlashers is a platform dedicated to providing advanced crypto tools and information to help you stay ahead in the blockchain world.</p>
+            <p>ProCryptoFlashers provides state-of-the-art crypto tools, enabling secure and efficient blockchain interactions.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 ProCryptoFlashers. All rights reserved.</p>
+        <p>&copy; 2024 ProCryptoFlashers. All rights reserved.</p>
     </footer>
 
-    <script src="js/user.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
