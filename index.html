@@ -3,78 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProCryptoFlashers</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
     <meta name="description" content="ProCryptoFlashers - Advanced Crypto Tools and Information">
-    <meta name="keywords" content="ProCryptoFlashers, USDT Flash, BTC Wallet Drainer, Crypto Tools, Blockchain Testing, Crypto Wallet, Flash Transactions">
+    <meta name="keywords" content="ProCryptoFlashers, Crypto Tools, USDT Flash, BTC Wallet Drainer, Blockchain Testing, Advanced Crypto">
     <meta property="og:title" content="ProCryptoFlashers - Advanced Crypto Tools">
     <meta property="og:description" content="Experience cutting-edge crypto tools like USDT Flash and BTC Wallet Drainer. Test and enhance your blockchain solutions.">
     <meta property="og:image" content="assets/meta/images/og-banner.jpg">
     <meta property="og:url" content="https://procryptoflashers.vip">
     <meta property="og:type" content="website">
-
-    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <title>ProCryptoFlashers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Loader -->
-    <div id="loader">
-        <img src="assets/logo/tether-usdt-logo.svg" alt="Loader Logo">
-        <div class="progress-bar">
-            <div class="progress"></div>
+    <div id="loader" class="d-flex justify-content-center align-items-center">
+        <img src="assets/logo/tether-usdt-logo.svg" alt="ProCryptoFlashers Logo" class="loader-logo">
+        <div class="progress w-75">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;" id="loader-bar"></div>
         </div>
     </div>
 
     <!-- Policy Popup -->
-    <div id="policy-popup" class="popup">
-        <div class="popup-content">
-            <h2>Accept Our Policies</h2>
-            <p>To continue using ProCryptoFlashers, you must accept our terms and policies.</p>
-            <button id="accept-policy">Yes</button>
-            <button id="reject-policy">No</button>
+    <div id="policy-popup" class="popup d-none">
+        <div class="popup-content text-center bg-light p-4 rounded">
+            <h4>Accept Our Policies</h4>
+            <p>You must accept our terms and policies to continue using ProCryptoFlashers.</p>
+            <button id="accept-policy" class="btn btn-success me-2">Yes</button>
+            <button id="reject-policy" class="btn btn-danger">No</button>
         </div>
     </div>
 
-    <header>
-        <nav>
-            <img src="assets/logo/tether-usdt-logo.svg" alt="ProCryptoFlashers Logo">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#about">About</a></li>
+    <!-- Navigation -->
+    <header class="bg-dark py-3">
+        <nav class="container d-flex justify-content-between align-items-center">
+            <img src="assets/logo/tether-usdt-logo.svg" alt="ProCryptoFlashers Logo" style="width: 50px;">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#tools">Tools</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#news">News</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home">
-            <h1>Welcome to ProCryptoFlashers</h1>
-            <p>Your ultimate source for advanced crypto tools and blockchain solutions.</p>
-            <button id="connect-wallet">Connect Wallet</button>
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Welcome Section -->
+        <section id="home" class="text-center">
+            <h1 class="mb-3">Welcome to ProCryptoFlashers</h1>
+            <p class="mb-4">Your ultimate source for advanced crypto tools and blockchain solutions.</p>
+            <button id="connect-wallet" class="btn btn-primary">Connect Wallet</button>
         </section>
 
-        <section id="tools">
-            <h2>Crypto Tools</h2>
-            <div id="tool-list"></div>
+        <!-- Tools Section -->
+        <section id="tools" class="my-5">
+            <h2 class="text-center mb-4">Crypto Tools</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-3">
+                    <div class="card">
+                        <img src="assets/meta/images/tool1.jpg" class="card-img-top" alt="USDT Flash">
+                        <div class="card-body">
+                            <h5 class="card-title">USDT Flash</h5>
+                            <p class="card-text">Simulate Tether transactions with ease.</p>
+                            <a href="#usdt-flash" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-3">
+                    <div class="card">
+                        <img src="assets/meta/images/tool2.jpg" class="card-img-top" alt="BTC Wallet Drainer">
+                        <div class="card-body">
+                            <h5 class="card-title">BTC Wallet Drainer</h5>
+                            <p class="card-text">Test wallet security with our new tool.</p>
+                            <a href="#btc-drainer" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="news">
-            <h2>Latest Updates</h2>
-            <div id="news-list"></div>
+        <!-- News Section -->
+        <section id="news" class="my-5">
+            <h2 class="text-center mb-4">Latest Updates</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>New Feature: USDT Flash Released</h5>
+                    <p>Experience our latest innovation in Tether transaction simulation.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Wallet Drainer Now Available</h5>
+                    <p>Enhance wallet security testing with this powerful tool.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="about">
+        <!-- About Section -->
+        <section id="about" class="text-center my-5">
             <h2>About Us</h2>
-            <p>ProCryptoFlashers provides state-of-the-art crypto tools, enabling secure and efficient blockchain interactions.</p>
+            <p>ProCryptoFlashers provides state-of-the-art crypto tools to enhance your blockchain solutions. Connect with us and explore innovative products designed for crypto enthusiasts.</p>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 ProCryptoFlashers. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2024 ProCryptoFlashers. All rights reserved.
     </footer>
 
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
