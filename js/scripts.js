@@ -1,40 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const connectWalletButton = document.getElementById('connect-wallet');
-    const toolList = document.getElementById('tool-list');
-    const newsList = document.getElementById('news-list');
+// Loader Removal
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'none';
+});
 
-    connectWalletButton.addEventListener('click', () => {
-        alert('Wallet connected successfully!');
-        // Add logic to connect the user's wallet
-    });
+// Policy Popup
+document.getElementById('accept-policy').addEventListener('click', () => {
+    document.getElementById('policy-popup').style.display = 'none';
+});
 
-    // Fetch and display tools
-    fetch('js/tools.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(tool => {
-                const toolItem = document.createElement('div');
-                toolItem.className = 'tool-item';
-                toolItem.innerHTML = `
-                    <h3>${tool.name}</h3>
-                    <p>${tool.description}</p>
-                `;
-                toolList.appendChild(toolItem);
-            });
-        });
+document.getElementById('reject-policy').addEventListener('click', () => {
+    window.location.href = "https://t.me/ProCryptoFlashers";
+});
 
-    // Fetch and display news
-    fetch('bitcoin-related-files/bitcoin-news.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(news => {
-                const newsItem = document.createElement('div');
-                newsItem.className = 'news-item';
-                newsItem.innerHTML = `
-                    <h3>${news.title}</h3>
-                    <p>${news.summary}</p>
-                `;
-                newsList.appendChild(newsItem);
-            });
-        });
+// Wallet Connect
+document.getElementById('connect-wallet').addEventListener('click', async () => {
+    if (window.ethereum) {
+        const web3 = new Web3(window.ethereum);
+        try {
+            await ethereum.request({ method: 'eth_requestAccounts' });
+            alert('Wallet connected successfully!');
+        } catch (error) {
+            console.error('Wallet connection failed:', error);
+        }
+    } else {
+        alert('Web3 provider not found. Install MetaMask.');
+    }
 });
