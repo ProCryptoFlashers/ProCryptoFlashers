@@ -1,0 +1,61 @@
+name: Update Bitcoin Prices
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Run every Sunday at midnight
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  update-bitcoin-prices:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install axios
+
+    - name: Fetch Bitcoin prices
+      run: |
+        node -e 'const axios = require("axios");
+        const fs = require("fs");
+        const path = require("path");
+
+        const getBitcoinPrices = async () => {
+          try {
+            const response = await axios.get("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart", {
+              params: {
+                vs_currency: "usd",
+                days: "7",
+                interval: "daily"
+              }
+            });
+            const prices = response.data.prices.map(priceData => ({
+              date: new Date(priceData[0]).toISOString().split("T")[0],
+              price: priceData[1]
+            }));
+            const pricesJson = JSON.stringify(prices, null, 2);
+            const pricesFilePath = path.join(__dirname, "bitcoin-related-files", "bitcoin-prices.json");
+            fs.writeFileSync(pricesFilePath, pricesJson);
+            console.log("Bitcoin prices updated successfully.");
+          } catch (error) {
+            console.error("Error fetching Bitcoin prices:", error);
+            process.exit(1);
+          }
+        };
+
+        getBitcoinPrices();'
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add bitcoin-related-files/bitcoin-prices.json
+        git commit -m "Update Bitcoin prices" || echo "No changes to commit"
+        git push

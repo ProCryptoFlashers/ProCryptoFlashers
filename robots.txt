@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Allow: /
+Sitemap: https://procryptoflashers.vip/sitemap.xml
